@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Category;
+use App\Banner;
 
 class CatalogsController extends Controller
 {
@@ -31,9 +32,11 @@ class CatalogsController extends Controller
             $products = $products->orderBy($field, $order);
         }
 
+        $banners = Banner::select('id','name','description','link','image')->get();
+
         $products = $products->paginate(4);
 
-        return view('catalogs.index', compact('products', 'q', 'cat',
+        return view('catalogs.index', compact('products','banners', 'q', 'cat',
             'category', 'sort', 'order'));
     }
 }
