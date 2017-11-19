@@ -31,20 +31,16 @@
                 <div class="col-md-12">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                          @foreach($banners as $key =>$banner)
+                              <li data-target="#carousel-example-generic" data-slide-to="{{ $key }} " @if($key == 0) class="active" @endif></li>
+                          @endforeach
                         </ol>
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="slide-image" src="{{ asset('img/1.jpg') }}" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="slide-image" src="{{ asset('img/2.jpg') }}" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="slide-image" src="{{ asset('img/3.jpg') }}" alt="">
-                            </div>
+                            @foreach($banners as $key =>$banner)
+                              <div class="item @if($key == 0) active @endif">
+                                <img class="slide-image" src="{{ asset('img/'.$banner->image) }}" alt="">
+                              </div>
+                            @endforeach
                         </div>
                         {{--  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                             <span class="icon-prev"></span>
@@ -99,4 +95,8 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('footer')
+    @include('layouts._footer')
 @endsection
