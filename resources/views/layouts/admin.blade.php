@@ -137,14 +137,9 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Banner</span>
+                                <a href="{{ route('banner.index') }}" class="menu-toggle">
+                                    <span>Banners</span>
                                 </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="../pages/widgets/cards/basic.html">Basic</a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);" class="menu-toggle">
