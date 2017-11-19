@@ -14,20 +14,27 @@ class ProductsSeeder extends Seeder
     public function run()
     {
         // sample category
-        $sepatu = Category::create(['title' => 'Sepatu']);
-        $sepatu->childs()->saveMany([
-            new Category(['title' => 'Lifestyle']),
-            new Category(['title' => 'Berlari']),
-            new Category(['title' => 'Basket']),
-            new Category(['title' => 'Sepakbola'])
-        ]);
+      $sepatu = Category::create(['title' => 'Sepatu','parent_id' => 0 ]);
+      $sepatu->childs()->saveMany([
+        new Category(['title' => 'Lifestyle',
+                      'parent_id' => 1 ]),
+        new Category(['title' => 'Berlari',
+                      'parent_id' => 1 ]),
+        new Category(['title' => 'Basket',
+                      'parent_id' => 1 ]),
+        new Category(['title' => 'Sepakbola',
+                      'parent_id' => 1 ])
+      ]);
 
-        $pakaian = Category::create(['title' => 'Pakaian']);
-        $pakaian->childs()->saveMany([
-            new Category(['title' => 'Jaket']),
-            new Category(['title' => 'Hoodie']),
-            new Category(['title' => 'Rompi']),
-        ]);
+      $pakaian = Category::create(['title' => 'Pakaian','parent_id' => 0 ]);
+      $pakaian->childs()->saveMany([
+        new Category(['title' => 'Jaket',
+                      'parent_id' => 6 ]),
+        new Category(['title' => 'Hoodie',
+                      'parent_id' => 6 ]),
+        new Category(['title' => 'Rompi',
+                      'parent_id' => 6 ]),
+      ]);
 
         // sample product
         $running = Category::where('title', 'Berlari')->first();
