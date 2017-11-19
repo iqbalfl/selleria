@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Favicon-->
+    <link rel="icon" href="{{ asset('/images/favicon.png') }}" type="image/x-icon">
+
     <title>{{ config('app.name', 'Selleria') }} - Best Online Shopping</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
@@ -18,6 +21,15 @@
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        .navbar-brand {
+            padding: 0px;
+        }
+        .navbar-brand>img {
+            height: 100%;
+            padding: 15px;
+            width: auto;
         }
     </style>
 </head>
@@ -36,7 +48,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Selleria') }}
+                    <img alt="Brand" src="{{ asset('/images/selleria_logo.png') }}">
                 </a>
             </div>
 
