@@ -21,7 +21,6 @@
       <h4 class="pull-right"><strong>Rp{{ number_format($product->price, 2) }}</strong></h4>
       <h4><a href="#">{{ $product->name }}</a></h4>
       <h5><strong>{{ $product->model }}</strong></h5>
-      <p>{{ $product->description }}</p>
       <p>
         @foreach ($product->categories as $category)
           <span class="label label-primary">
