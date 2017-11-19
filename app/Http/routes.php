@@ -40,6 +40,8 @@ Route::group(['middleware' => 'web'], function () {
         'index', 'edit', 'update'
     ]]);
 
+    Route::resource('banner', 'BannerController',  ['except' => ['show']]);
+
     Route::post('cart', 'CartController@addProduct');
     Route::get('cart', 'CartController@show');
     Route::delete('cart/{product_id}', 'CartController@removeProduct');
