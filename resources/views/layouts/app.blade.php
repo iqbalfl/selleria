@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Selleria - Best Online Shopping</title>
+    <title>{{ config('app.name', 'Selleria') }} - Best Online Shopping</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
@@ -36,7 +36,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Selleria
+                    {{ config('app.name', 'Selleria') }}
                 </a>
             </div>
 
@@ -93,6 +93,8 @@
     </div>
 
     @yield('content')
+
+    @yield('footer')
 
     <!-- JavaScripts -->
     <script src="{{ elixir('js/all.js') }}"></script>

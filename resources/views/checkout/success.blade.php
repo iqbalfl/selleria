@@ -11,7 +11,7 @@
           <div class="panel-body">
             <p>Hi <strong>{{ session('order')->user->name }}</strong>,</p>
             <p></p>
-            <p>Terima kasih telah berbelanja di Selleria. <br>
+            <p>Terima kasih telah berbelanja di {{ config('app.name', 'Selleria') }}. <br>
               Untuk melakukan pembayaran dengan {{ config('bank-accounts')[session('order')->bank]['title'] }}: </p>
             <ol>
               <li>Silahkan transfer ke rekening <strong>{{ config('bank-accounts')[session('order')->bank]['bank'] }} {{ config('bank-accounts')[session('order')->bank]['number'] }} An. {{ config('bank-accounts')[session('order')->bank]['name'] }}</strong>.</li>
