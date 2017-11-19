@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $orders = DB::table('orders')->count();
+        $members = DB::table('users')->where('role','customer')->count();
+        $products = DB::table('products')->count();
+        $categories = DB::table('categories')->count();
+        return view('home')->with(compact('orders','members','products','categories'));
     }
 
     public function viewOrders(Request $request)
