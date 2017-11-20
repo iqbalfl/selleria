@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Selleria') }} - Best Online Shopping</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
         body {
@@ -109,7 +109,7 @@
     @yield('footer')
 
     <!-- JavaScripts -->
-    <script src="{{ elixir('js/all.js') }}"></script>
+    <script src="{{ asset('js/all.js') }}"></script>
     @if (Session::has('flash_product_name'))
         @include('catalogs._product-added', ['product_name' => Session::get('flash_product_name')])
     @endif
