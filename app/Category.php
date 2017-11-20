@@ -15,7 +15,7 @@ class Category extends Model
         static::deleting(function($model) {
             // remove parent from this category's child
             foreach ($model->childs as $child) {
-                $child->parent_id = '';
+                $child->parent_id = 0;
                 $child->save();
             }
             // remove relations to products
@@ -43,7 +43,7 @@ class Category extends Model
      */
     public function scopeNoParent($query)
     {
-        return $this->where('parent_id', '');
+        return $this->where('parent_id', 0);
     }
 
     /**
