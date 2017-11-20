@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('model');
             $table->decimal('price', 10, 2); // max XX,XXX,XXX.XX
             $table->decimal('weight', 8, 2); // max XXX,XXX,XX
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
