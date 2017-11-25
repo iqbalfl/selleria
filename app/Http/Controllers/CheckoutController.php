@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,7 @@ use App\Product;
 use App\Support\CartService;
 use App\Order;
 use App\OrderDetail;
+
 
 class CheckoutController extends Controller
 {
@@ -243,7 +245,15 @@ class CheckoutController extends Controller
     }
 
     public function success()
-    {
+    {    
+        $user_name = session('order')->user->name;
+        $user_email = session('order')->user->email;
+        //kirim email konfirmasi order
+        Mail::send('checkout.mail_checkout', compact('transaction'), function ($message) use ($user_name,$user_email) {
+          $message->to($user_email, $user_name)
+                  ->subject('Konfirmasi Order');
+        });
+
         return view('checkout.success');
     }
 }
